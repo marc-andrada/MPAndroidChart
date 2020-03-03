@@ -26,7 +26,6 @@ public class ObjectPool<T extends ObjectPool.Poolable> {
     private T modelObject;
     private float replenishPercentage;
 
-
     /**
      * Returns the id of the given pool instance.
      *
@@ -50,6 +49,7 @@ public class ObjectPool<T extends ObjectPool.Poolable> {
 
         return result;
     }
+    public int getObjectsPointer() {return this.objectsPointer;}
 
     private ObjectPool(int withCapacity, T object){
         if(withCapacity <= 0){
@@ -84,7 +84,7 @@ public class ObjectPool<T extends ObjectPool.Poolable> {
         return replenishPercentage;
     }
 
-    private void refillPool(){
+    public void refillPool(){
         this.refillPool(this.replenishPercentage);
     }
 
